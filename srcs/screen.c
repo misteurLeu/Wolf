@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   screen.h                                           :+:      :+:    :+:   */
+/*   screen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/13 15:56:41 by jleu              #+#    #+#             */
-/*   Updated: 2016/10/14 15:54:22 by jleu             ###   ########.fr       */
+/*   Created: 2016/10/14 14:38:33 by jleu              #+#    #+#             */
+/*   Updated: 2016/10/14 15:54:15 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCREEN_H
-# define SCREEN_H
+#include "screen.h"
 
-typedef struct	s_screen
+t_screen	*screen_new()
 {
-	int			h;
-	int			l;
-}				t_screen;
+	t_screen *screen;
 
-t_screen		*screen_new();
-t_screen		*screen_init(int h, int l);
-void			screen_destroy(t_screen **screen);
+	screen = (t_screen*)malloc(sizeof(t_screen));
+	return (screen);
+}
 
-#endif
+t_screen	*screen_init(int h, int l)
+{
+	t_screen *screen;
+
+	screen = screen_new();
+	screen->h = h;
+	screen->l = l;
+	return (screen);
+}
+
+void		screen_destroy(t_screen **screen)
+{
+	if (*screen)
+	{
+		free(*screen);
+		*screen = NULL;
+	}
+}

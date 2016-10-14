@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   screen.h                                           :+:      :+:    :+:   */
+/*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/13 15:56:41 by jleu              #+#    #+#             */
-/*   Updated: 2016/10/14 15:54:22 by jleu             ###   ########.fr       */
+/*   Created: 2016/10/14 15:43:55 by jleu              #+#    #+#             */
+/*   Updated: 2016/10/14 15:50:30 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCREEN_H
-# define SCREEN_H
+#include "scene.h"
+#include "cam.h"
 
-typedef struct	s_screen
+t_scene	*scene_new()
 {
-	int			h;
-	int			l;
-}				t_screen;
+	t_scene *s;
 
-t_screen		*screen_new();
-t_screen		*screen_init(int h, int l);
-void			screen_destroy(t_screen **screen);
+	s = (t_scene*)malloc(sizeof(t_scene));
+	return (s);
+}
 
-#endif
+t_scene	*scene_init(t_cam *cam, char **s, int x, int y)
+{
+	t_scene *scene;
+
+	scene = scene_new();
+	scene->cam = cam;
+	scene->scene = s;
+	scene->x = x;
+	scene->y = y;
+}
+
+void	scene_destroy(t_scene **scene)
+{
+	if (*scene)
+	{
+		free(scene);
+		*scene = NULL;
+	}
+}

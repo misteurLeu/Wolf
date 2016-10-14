@@ -6,7 +6,7 @@
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 14:20:49 by jleu              #+#    #+#             */
-/*   Updated: 2016/10/13 16:16:19 by jleu             ###   ########.fr       */
+/*   Updated: 2016/10/14 18:28:58 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,11 @@ t_2d_vector		vector_mult(t_2d_vector *v1, double value)
 	return (v2);
 }
 
-void			2d_vector_destroy(t_2d_vector *v)
+void			2d_vector_destroy(t_2d_vector **v)
 {
-	if (v)
+	if (*v)
 	{
-		free (v);
-		v = NULL;
+		free (*v);
+		*v = NULL;
 	}
 }
