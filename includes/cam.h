@@ -6,14 +6,14 @@
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 15:19:38 by jleu              #+#    #+#             */
-/*   Updated: 2016/10/14 15:53:50 by jleu             ###   ########.fr       */
+/*   Updated: 2016/10/22 20:52:22 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAM_H
 # define CAM_H
 
-# include "2d-vector.h"
+# include "2d_vector.h"
 # include "screen.h"
 
 typedef struct s_cam

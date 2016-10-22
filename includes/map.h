@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/13 15:54:42 by jleu              #+#    #+#             */
-/*   Updated: 2016/10/22 20:51:01 by jleu             ###   ########.fr       */
+/*   Created: 2016/10/22 16:30:18 by jleu              #+#    #+#             */
+/*   Updated: 2016/10/22 16:50:47 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#ifndef MAP_H
+# define MAP_H
 
-# include "cam.h"
-
-typedef struct	s_scene
-{
-	t_cam		*cam;
-	char		**scene;
-	int			sizex;
-	int			sizey;
-}				t_scene;
-
-t_scene			*scene_new();
-t_scene			*scene_init(t_cam *cam, char **scene, int x, int y);
-void			scene_destroy(t_scene **scene);
+char **map00();
 
 #endif

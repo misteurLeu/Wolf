@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene.h                                            :+:      :+:    :+:   */
+/*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/13 15:54:42 by jleu              #+#    #+#             */
-/*   Updated: 2016/10/14 15:49:39 by jleu             ###   ########.fr       */
+/*   Created: 2016/10/19 17:42:27 by jleu              #+#    #+#             */
+/*   Updated: 2016/10/22 17:17:35 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCENE_H
-# define SCENE_H
+#include "2d_vector.h"
+#include "ray.h"
+#include <stdlib.h>
 
-# include "cam.h"
-
-typedef struct	s_scene
+t_ray	*ray_new()
 {
-	t_cam		*cam;
-	char		**scene;
-	int			sizex;
-	int			sizey;
-}				t_scene
+	t_ray *ray;
 
-t_scene			*scene_new();
-t_scene			*scene_init(t_cam *cam, char **scene, int x, int y);
-void			scene_destroy(t_scene **scene);
+	ray = (t_ray*)malloc(sizeof(t_ray));
+	return (ray);
+}
 
-#endif
+t_ray	*ray_init(t_2d_vector *o, t_2d_vector *d)
+{
+	t_ray *ray;
+
+	ray = ray_new();
+	ray->origin = o;
+	ray->direction = d;
+	return (ray);
+}
+
+void	ray_destroy(t_ray **ray)
+{
+	if (*ray)
+	{
+		free(*ray);
+		*ray = NULL;
+	}
+}
